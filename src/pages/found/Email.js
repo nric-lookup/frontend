@@ -2,6 +2,7 @@ import React from 'react'
 
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
 
 function Email({ hs3, e3, r3, onSubmit3, step, next, back }) {
   return (
@@ -20,26 +21,31 @@ function Email({ hs3, e3, r3, onSubmit3, step, next, back }) {
           helperText={e3.email && 'Please provide a valid IC number'}
           inputRef={r3()}
         />
-        <Button
-          fullWidth
-          variant='contained'
-          color='primary'
-          size='large'
-          onClick={() => back()}
+        <Grid
+          container
+          direction='row'
+          justify='space-between'
+          alignItems='flex-end'
         >
-          Back
-        </Button>
-        <br />
-        <Button
-          type='submit'
-          fullWidth
-          variant='contained'
-          color='primary'
-          size='large'
-          onClick={() => next()}
-        >
-          Finish
-        </Button>
+          <Button
+            variant='contained'
+            color='primary'
+            size='large'
+            onClick={() => back()}
+          >
+            Back
+          </Button>
+          <br />
+          <Button
+            type='submit'
+            variant='contained'
+            color='primary'
+            size='large'
+            onClick={() => next()}
+          >
+            Next
+          </Button>
+        </Grid>
       </form>
     </>
   )

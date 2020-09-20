@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
 
 function Review({ step, onSubmit, back, ic, type, info, email }) {
   return (
@@ -10,25 +11,30 @@ function Review({ step, onSubmit, back, ic, type, info, email }) {
       <p>{type}</p>
       <p>{info}</p>
       <p>{email}</p>
-      <Button
-        fullWidth
-        variant='contained'
-        color='primary'
-        size='large'
-        onClick={() => back()}
+      <Grid
+        container
+        direction='row'
+        justify='space-between'
+        alignItems='flex-end'
       >
-        Back
-      </Button>
-      <Button
-        type='submit'
-        fullWidth
-        variant='contained'
-        color='primary'
-        size='large'
-        onClick={() => onSubmit()}
-      >
-        Finish
-      </Button>
+        <Button
+          variant='contained'
+          color='primary'
+          size='large'
+          onClick={() => back()}
+        >
+          Back
+        </Button>
+        <Button
+          type='submit'
+          variant='contained'
+          color='primary'
+          size='large'
+          onClick={() => onSubmit()}
+        >
+          Finish
+        </Button>
+      </Grid>
     </div>
   )
 }

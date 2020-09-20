@@ -2,6 +2,7 @@ import React from 'react'
 
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
 
 function Contact({ hs2, e2, r2, onSubmit2, step, next, back }) {
   return (
@@ -21,26 +22,30 @@ function Contact({ hs2, e2, r2, onSubmit2, step, next, back }) {
           inputRef={r2()}
         />
 
-        <Button
-          fullWidth
-          variant='contained'
-          color='primary'
-          size='large'
-          onClick={() => back()}
+        <Grid
+          container
+          direction='row'
+          justify='space-between'
+          alignItems='flex-end'
         >
-          Back
-        </Button>
-        <br />
-        <Button
-          type='submit'
-          fullWidth
-          variant='contained'
-          color='primary'
-          size='large'
-          onClick={() => next()}
-        >
-          Next
-        </Button>
+          <Button
+            variant='contained'
+            color='primary'
+            size='large'
+            onClick={() => back()}
+          >
+            Back
+          </Button>
+          <Button
+            type='submit'
+            variant='contained'
+            color='primary'
+            size='large'
+            onClick={() => next()}
+          >
+            Next
+          </Button>
+        </Grid>
       </form>
     </>
   )
