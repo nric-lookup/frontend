@@ -1,8 +1,10 @@
 import React from 'react'
 
 import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
 
 function IC({ hs1, e1, r1, onSubmit1, step, next }) {
   return (
@@ -29,15 +31,18 @@ function IC({ hs1, e1, r1, onSubmit1, step, next }) {
           alignItems='flex-end'
         >
           <div></div>
-          <Button
+          <IconButton
             type='submit'
             variant='contained'
             color='primary'
             size='large'
             onClick={() => next()}
           >
-            Next
-          </Button>
+            <Typography variant='subtitle1' component='subtitle1'>
+              Next
+            </Typography>
+            <ArrowForwardIosIcon />
+          </IconButton>
         </Grid>
       </form>
     </>

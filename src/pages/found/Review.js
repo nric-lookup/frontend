@@ -1,7 +1,10 @@
 import React from 'react'
 
-import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 
 function Review({ step, onSubmit, back, ic, type, info, email }) {
   return (
@@ -17,23 +20,30 @@ function Review({ step, onSubmit, back, ic, type, info, email }) {
         justify='space-between'
         alignItems='flex-end'
       >
-        <Button
+        <IconButton
           variant='contained'
           color='primary'
           size='large'
           onClick={() => back()}
         >
-          Back
-        </Button>
-        <Button
+          <ArrowBackIosIcon />
+          <Typography variant='subtitle1' component='subtitle1'>
+            Back
+          </Typography>
+        </IconButton>
+
+        <IconButton
           type='submit'
           variant='contained'
           color='primary'
           size='large'
           onClick={() => onSubmit()}
         >
-          Finish
-        </Button>
+          <Typography variant='subtitle1' component='subtitle1'>
+            Finish
+          </Typography>
+          <ArrowForwardIosIcon />
+        </IconButton>
       </Grid>
     </div>
   )

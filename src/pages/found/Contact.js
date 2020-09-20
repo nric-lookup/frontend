@@ -1,8 +1,11 @@
 import React from 'react'
 
 import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import IconButton from '@material-ui/core/IconButton'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 
 function Contact({ hs2, e2, r2, onSubmit2, step, next, back }) {
   return (
@@ -28,23 +31,30 @@ function Contact({ hs2, e2, r2, onSubmit2, step, next, back }) {
           justify='space-between'
           alignItems='flex-end'
         >
-          <Button
+          <IconButton
             variant='contained'
             color='primary'
             size='large'
             onClick={() => back()}
           >
-            Back
-          </Button>
-          <Button
+            <ArrowBackIosIcon />
+            <Typography variant='subtitle1' component='subtitle1'>
+              Back
+            </Typography>
+          </IconButton>
+
+          <IconButton
             type='submit'
             variant='contained'
             color='primary'
             size='large'
             onClick={() => next()}
           >
-            Next
-          </Button>
+            <Typography variant='subtitle1' component='subtitle1'>
+              Next
+            </Typography>
+            <ArrowForwardIosIcon />
+          </IconButton>
         </Grid>
       </form>
     </>
