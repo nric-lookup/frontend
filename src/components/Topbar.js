@@ -23,8 +23,9 @@ function Topbar({ classes }) {
             className={classes.menuButton}
             color='inherit'
             aria-label='menu'
+            onClick={() => setOpen(true)}
           >
-            <MenuIcon onClick={() => setOpen(true)} />
+            <MenuIcon />
           </IconButton>
           <Typography variant='h6' className={classes.title}>
             Jumpa IC
