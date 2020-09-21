@@ -36,10 +36,9 @@ function IC({ hs1, e1, r1, onSubmit1, step, next }) {
             type='submit'
             variant='contained'
             color='primary'
-            size='large'
             onClick={() => !e1.ic && next()}
           >
-            <Typography variant='subtitle1' component='subtitle1'>
+            <Typography variant='subtitle1' component='span'>
               Next
             </Typography>
             <ArrowForwardIosIcon />

@@ -19,7 +19,7 @@ function Email({ hs3, e3, r3, onSubmit3, step, next, back }) {
           type='email'
           margin='normal'
           variant='outlined'
-          label='Enter IC number that you found'
+          label='Email address'
           error={e3.email}
           helperText={e3.email && 'Please provide a valid IC number'}
           inputRef={r3()}
@@ -33,11 +33,10 @@ function Email({ hs3, e3, r3, onSubmit3, step, next, back }) {
           <IconButton
             variant='contained'
             color='primary'
-            size='large'
             onClick={() => back()}
           >
             <ArrowBackIosIcon />
-            <Typography variant='subtitle1' component='subtitle1'>
+            <Typography variant='subtitle1' component='span'>
               Back
             </Typography>
           </IconButton>
@@ -46,10 +45,9 @@ function Email({ hs3, e3, r3, onSubmit3, step, next, back }) {
             type='submit'
             variant='contained'
             color='primary'
-            size='large'
             onClick={() => next()}
           >
-            <Typography variant='subtitle1' component='subtitle1'>
+            <Typography variant='subtitle1' component='span'>
               Next
             </Typography>
             <ArrowForwardIosIcon />

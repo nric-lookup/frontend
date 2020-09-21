@@ -24,14 +24,12 @@ function Contact({
   info,
   setInfo,
 }) {
-  useEffect(() => {
-    r2({ name: 'type' })
-  }, [r2])
+  useEffect(() => r2({ name: 'type' }), [r2])
 
   return (
     <>
       <form key={2} onSubmit={hs2(onSubmit2)} hidden={step !== 2}>
-        <Typography variant='body1' component='body1'>
+        <Typography variant='body1' component='p'>
           Your contact info
         </Typography>
         <FormControl margin='normal' fullWidth variant='outlined'>
@@ -64,7 +62,7 @@ function Contact({
               onChange={(e) => setInfo(e.target.value)}
               helperText="Without '@'"
             />
-            <Typography variant='caption' component='subtitle2'>
+            <Typography variant='caption' component='span'>
               Make sure it works:{' '}
               <Link href={'https://t.me/' + info} target='_blank'>
                 https://t.me/{info}
@@ -88,7 +86,7 @@ function Contact({
               onChange={(e) => setInfo(e.target.value)}
               helperText='e.g. 60123456789'
             />
-            <Typography variant='caption' component='subtitle2'>
+            <Typography variant='caption' component='span'>
               Make sure it works:{' '}
               <Link href={'https://wa.me/' + info} target='_blank'>
                 https://wa.me/{info}
@@ -106,11 +104,10 @@ function Contact({
           <IconButton
             variant='contained'
             color='primary'
-            size='large'
             onClick={() => back()}
           >
             <ArrowBackIosIcon />
-            <Typography variant='subtitle1' component='subtitle1'>
+            <Typography variant='subtitle1' component='span'>
               Back
             </Typography>
           </IconButton>
@@ -119,10 +116,9 @@ function Contact({
             type='submit'
             variant='contained'
             color='primary'
-            size='large'
             onClick={() => next()}
           >
-            <Typography variant='subtitle1' component='subtitle1'>
+            <Typography variant='subtitle1' component='span'>
               Next
             </Typography>
             <ArrowForwardIosIcon />

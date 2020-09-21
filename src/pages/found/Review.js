@@ -20,14 +20,9 @@ function Review({ step, onSubmit, back, ic, type, info, email }) {
         justify='space-between'
         alignItems='flex-end'
       >
-        <IconButton
-          variant='contained'
-          color='primary'
-          size='large'
-          onClick={() => back()}
-        >
+        <IconButton variant='contained' color='primary' onClick={() => back()}>
           <ArrowBackIosIcon />
-          <Typography variant='subtitle1' component='subtitle1'>
+          <Typography variant='subtitle1' component='span'>
             Back
           </Typography>
         </IconButton>
@@ -36,10 +31,9 @@ function Review({ step, onSubmit, back, ic, type, info, email }) {
           type='submit'
           variant='contained'
           color='primary'
-          size='large'
           onClick={() => onSubmit()}
         >
-          <Typography variant='subtitle1' component='subtitle1'>
+          <Typography variant='subtitle1' component='span'>
             Finish
           </Typography>
           <ArrowForwardIosIcon />
