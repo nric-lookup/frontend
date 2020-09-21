@@ -8,7 +8,7 @@ import Lost from '../pages/Lost'
 import Found from '../pages/Found'
 
 function ActionTab() {
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState(1)
 
   return (
     <>
@@ -20,8 +20,8 @@ function ActionTab() {
           indicatorColor='secondary'
           textColor='secondary'
         >
-          <Tab label='Lost' />
-          <Tab label='Found' />
+          <Tab value={0} label='Lost' />
+          <Tab value={1} label='Found' />
         </Tabs>
       </Paper>
       <TabPanel value={value} index={0}>
