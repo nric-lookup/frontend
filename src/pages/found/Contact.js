@@ -11,19 +11,8 @@ import Link from '@material-ui/core/Link'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 
-function Contact({
-  hs2,
-  e2,
-  r2,
-  onSubmit2,
-  step,
-  next,
-  back,
-  type,
-  setType,
-  info,
-  setInfo,
-}) {
+function Contact({ hs2, e2, r2, onSubmit2, step, back, type, setType, watch }) {
+  const watchInfo = watch('info')
   useEffect(() => r2({ name: 'type' }), [r2])
 
   return (
@@ -56,16 +45,14 @@ function Contact({
               margin='normal'
               variant='outlined'
               label='Telegram username'
-              error={e2.info}
-              inputRef={r2()}
-              value={info}
-              onChange={(e) => setInfo(e.target.value)}
+              error={!!e2.info}
+              inputRef={r2({ required: true })}
               helperText="Without '@'"
             />
             <Typography variant='caption' component='span'>
               Make sure it works:{' '}
-              <Link href={'https://t.me/' + info} target='_blank'>
-                https://t.me/{info}
+              <Link href={'https://t.me/' + watchInfo} target='_blank'>
+                https://t.me/{watchInfo}
               </Link>
             </Typography>
           </>
@@ -80,16 +67,14 @@ function Contact({
               margin='normal'
               variant='outlined'
               label='Phone number'
-              error={e2.info}
-              inputRef={r2()}
-              value={info}
-              onChange={(e) => setInfo(e.target.value)}
+              error={!!e2.info}
+              inputRef={r2({ required: true })}
               helperText='e.g. 60123456789'
             />
             <Typography variant='caption' component='span'>
               Make sure it works:{' '}
-              <Link href={'https://wa.me/' + info} target='_blank'>
-                https://wa.me/{info}
+              <Link href={'https://wa.me/' + watchInfo} target='_blank'>
+                https://wa.me/{watchInfo}
               </Link>
             </Typography>
           </>
@@ -112,12 +97,7 @@ function Contact({
             </Typography>
           </IconButton>
 
-          <IconButton
-            type='submit'
-            variant='contained'
-            color='primary'
-            onClick={() => next()}
-          >
+          <IconButton type='submit' variant='contained' color='primary'>
             <Typography variant='subtitle1' component='span'>
               Next
             </Typography>
