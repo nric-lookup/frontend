@@ -13,7 +13,7 @@ function Found() {
 
   const [ic, setIc] = useState('')
   const [email, setEmail] = useState('')
-  const [type, setType] = useState('')
+  const [type, setType] = useState('telegram')
   const [info, setInfo] = useState('')
 
   const next = () => setStep(() => step + 1)
@@ -24,10 +24,7 @@ function Found() {
   const { register: r3, handleSubmit: hs3, errors: e3 } = useForm()
 
   const onSubmit1 = ({ ic }) => setIc(ic)
-  const onSubmit2 = ({ type, info }) => {
-    setType(type)
-    setInfo(info)
-  }
+  const onSubmit2 = ({ info }) => setInfo(info)
   const onSubmit3 = ({ email }) => setEmail(email)
 
   const onSubmit = () => {
@@ -54,6 +51,10 @@ function Found() {
         r2={r2}
         next={next}
         back={back}
+        info={info}
+        setInfo={setInfo}
+        type={type}
+        setType={setType}
       />
 
       <Email
