@@ -19,9 +19,10 @@ function Found() {
   const next = () => setStep(() => step + 1)
   const back = () => setStep(() => step - 1)
 
-  const { register: r1, handleSubmit: hs1, errors: e1 } = useForm()
-  const { register: r2, handleSubmit: hs2, errors: e2 } = useForm()
-  const { register: r3, handleSubmit: hs3, errors: e3 } = useForm()
+  const config = { mode: 'onBlur' }
+  const { register: r1, handleSubmit: hs1, errors: e1 } = useForm(config)
+  const { register: r2, handleSubmit: hs2, errors: e2 } = useForm(config)
+  const { register: r3, handleSubmit: hs3, errors: e3 } = useForm(config)
 
   const onSubmit1 = ({ ic }) => setIc(ic)
   const onSubmit2 = ({ info }) => setInfo(info)
