@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 
-function Email({ hs3, e3, r3, onSubmit3, step, next, back }) {
+function Email({ hs3, e3, r3, onSubmit3, step, back }) {
   return (
     <>
       <form key={3} onSubmit={hs3(onSubmit3)} hidden={step !== 3}>
@@ -16,15 +16,21 @@ function Email({ hs3, e3, r3, onSubmit3, step, next, back }) {
         </Typography>
         <TextField
           fullWidth
+          autoFocus
           id='email'
           name='email'
           type='email'
           margin='normal'
           variant='outlined'
           label='Email address'
-          error={e3.email}
-          helperText={e3.email && 'Please provide a valid IC number'}
-          inputRef={r3()}
+          error={!!e3.email}
+          helperText={!!e3.email && 'Please provide a valid email address'}
+          inputRef={r3({
+            required: true,
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            },
+          })}
         />
         <Grid
           container
@@ -43,12 +49,7 @@ function Email({ hs3, e3, r3, onSubmit3, step, next, back }) {
             </Typography>
           </IconButton>
 
-          <IconButton
-            type='submit'
-            variant='contained'
-            color='primary'
-            onClick={() => next()}
-          >
+          <IconButton type='submit' variant='contained' color='primary'>
             <Typography variant='subtitle1' component='span'>
               Next
             </Typography>

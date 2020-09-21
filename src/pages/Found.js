@@ -24,9 +24,18 @@ function Found() {
   const { register: r2, handleSubmit: hs2, errors: e2 } = useForm(config)
   const { register: r3, handleSubmit: hs3, errors: e3 } = useForm(config)
 
-  const onSubmit1 = ({ ic }) => setIc(ic)
-  const onSubmit2 = ({ info }) => setInfo(info)
-  const onSubmit3 = ({ email }) => setEmail(email)
+  const onSubmit1 = ({ ic }) => {
+    setIc(ic)
+    next()
+  }
+  const onSubmit2 = ({ info }) => {
+    setInfo(info)
+    next()
+  }
+  const onSubmit3 = ({ email }) => {
+    setEmail(email)
+    next()
+  }
 
   const onSubmit = () => {
     alert(`${ic} ${email} ${type}`)
@@ -35,14 +44,7 @@ function Found() {
 
   return (
     <>
-      <IC
-        hs1={hs1}
-        onSubmit1={onSubmit1}
-        step={step}
-        e1={e1}
-        r1={r1}
-        next={next}
-      />
+      <IC hs1={hs1} onSubmit1={onSubmit1} step={step} e1={e1} r1={r1} />
 
       <Contact
         hs2={hs2}
@@ -50,7 +52,6 @@ function Found() {
         step={step}
         e2={e2}
         r2={r2}
-        next={next}
         back={back}
         info={info}
         setInfo={setInfo}
@@ -64,7 +65,6 @@ function Found() {
         step={step}
         e3={e3}
         r3={r3}
-        next={next}
         back={back}
       />
 
