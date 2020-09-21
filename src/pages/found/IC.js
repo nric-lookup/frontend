@@ -10,7 +10,9 @@ function IC({ hs1, e1, r1, onSubmit1, step, next }) {
   return (
     <>
       <form key={1} onSubmit={hs1(onSubmit1)} hidden={step !== 1}>
-        <p>IC number that you found</p>
+        <Typography variant='body1' component='p'>
+          IC number that you found
+        </Typography>
         <TextField
           fullWidth
           autoFocus

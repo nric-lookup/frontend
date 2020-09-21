@@ -11,7 +11,9 @@ function Email({ hs3, e3, r3, onSubmit3, step, next, back }) {
   return (
     <>
       <form key={3} onSubmit={hs3(onSubmit3)} hidden={step !== 3}>
-        <p>Your email address</p>
+        <Typography variant='body1' component='p'>
+          Your email address
+        </Typography>
         <TextField
           fullWidth
           id='email'
