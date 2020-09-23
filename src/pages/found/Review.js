@@ -1,5 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
+import Dialog from '@material-ui/core/Dialog'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogActions from '@material-ui/core/DialogActions'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
@@ -10,6 +15,8 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 
 function Review({ step, onSubmit, back, ic, type, info, email }) {
+  const [open, setOpen] = useState(false)
+
   const contactUrl = {
     url: () => {
       switch (type) {
@@ -22,10 +29,12 @@ function Review({ step, onSubmit, back, ic, type, info, email }) {
       }
     },
   }
+
+  const handleClose = () => setOpen(false)
   return (
     <div hidden={step !== 4}>
-      <Typography variant='body1' component='p'>
-        Is everything correct?
+      <Typography variant='body1' component='p' align='center'>
+        Everything correct?
       </Typography>
 
       <TextField
@@ -47,21 +56,18 @@ function Review({ step, onSubmit, back, ic, type, info, email }) {
 
       <Box component='div' mt={1}>
         <Button
+          fullWidth
+          size='large'
           variant='contained'
           color='primary'
           target='_blank'
           href={contactUrl.url()}
         >
-          Contact Link
+          Try contact link
         </Button>
       </Box>
 
-      <Grid
-        container
-        direction='row'
-        justify='space-between'
-        alignItems='flex-end'
-      >
+      <Grid container direction='row' justify='space-between' alignItems='flex-end'>
         <IconButton variant='contained' color='primary' onClick={() => back()}>
           <ArrowBackIosIcon />
           <Typography variant='subtitle1' component='span'>
@@ -69,18 +75,38 @@ function Review({ step, onSubmit, back, ic, type, info, email }) {
           </Typography>
         </IconButton>
 
-        <IconButton
-          type='submit'
-          variant='contained'
-          color='primary'
-          onClick={() => onSubmit()}
-        >
+        <IconButton type='submit' variant='contained' color='primary' onClick={() => setOpen(true)}>
           <Typography variant='subtitle1' component='span'>
             Finish
           </Typography>
           <ArrowForwardIosIcon />
         </IconButton>
       </Grid>
+
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Ready to submit?</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Please make sure that all the information is correct and you have tested the contact
+            link.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color='textSecondary'>
+            cancel
+          </Button>
+          <Button
+            variant='contained'
+            onClick={() => {
+              onSubmit()
+              setOpen(false)
+            }}
+            color='primary'
+          >
+            confirm
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   )
 }
