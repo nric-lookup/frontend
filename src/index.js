@@ -2,6 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import axios from 'axios'
+
+const baseUrl = 'https://us-central1-nric-lookup.cloudfunctions.net/api'
+axios.defaults.baseURL = baseUrl
 
 ReactDOM.render(
   <React.StrictMode>

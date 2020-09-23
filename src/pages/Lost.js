@@ -1,22 +1,37 @@
 import React, { useState } from 'react'
 
 import { useForm } from 'react-hook-form'
+import axios from 'axios'
 
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
 import Result from './Result'
+import Loader from '../components/Loader'
 
 function Lost() {
   const [result, setResult] = useState('')
+  const [contact, setContact] = useState('')
+  const [loading, setLoading] = useState(false)
+
   const { register, handleSubmit, errors } = useForm()
 
-  const onSubmit = (data) => {
-    setResult(data.ic_no === '101010101010' ? 'yes' : 'no')
+  const back = () => setResult('')
+
+  const onSubmit = async ({ ic_no }) => {
+    setLoading(true)
+    try {
+      const { data } = await axios.post('/search', { ic_no })
+      setContact(data.contact_url)
+      setResult('yes')
+    } catch ({ response }) {
+      if (response.status === 404) setResult('no')
+    }
+    setLoading(false)
   }
 
-  const back = () => setResult('')
+  if (loading) return <Loader message={'Looking for your IC...'} />
 
   return (
     <>
@@ -49,7 +64,7 @@ function Lost() {
           title='Good News'
           message='Someone has found your IC, please find a safe place to claim your item.'
           button='Claim'
-          to='https://google.com'
+          to={contact}
         />
       )}
 
