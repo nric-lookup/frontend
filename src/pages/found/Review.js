@@ -103,7 +103,7 @@ function Review({ step, onSubmit, back, ic, type, info, email }) {
             }}
             color='primary'
           >
-            confirm
+            Confirm
           </Button>
         </DialogActions>
       </Dialog>
