@@ -8,7 +8,7 @@ import Lost from '../pages/Lost'
 import Found from '../pages/Found'
 
 function ActionTab() {
-  const [value, setValue] = useState(1)
+  const [value, setValue] = useState(0)
 
   return (
     <>
