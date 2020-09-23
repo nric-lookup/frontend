@@ -8,15 +8,15 @@ function ThankYou({ step, reset }) {
   return (
     <div hidden={step !== 5}>
       <Typography variant='h3' component='h3' color='primary'>
-        Thank You
+        <b>Thank You</b>
       </Typography>
       <Box my={2}>
         <Typography variant='body2' component='p'>
           Once the item has been claimed, please use the link that we email to delete your listing.
         </Typography>
       </Box>
-      <Button variant='contained' color='primary' onClick={() => reset()}>
-        Okay
+      <Button fullWidth variant='contained' color='primary' onClick={() => reset()}>
+        OK
       </Button>
     </div>
   )
