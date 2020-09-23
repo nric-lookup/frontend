@@ -1,4 +1,5 @@
 export default {
+  fontFamily: 'Nunito, Arial',
   h1: {
     fontWeight: 500,
     fontSize: 35,
