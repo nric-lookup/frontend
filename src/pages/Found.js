@@ -20,9 +20,9 @@ function Found() {
   const back = () => setStep(() => step - 1)
 
   const config = { mode: 'onBlur' }
-  const { register: r1, handleSubmit: hs1, errors: e1 } = useForm(config)
-  const { register: r2, handleSubmit: hs2, errors: e2, watch } = useForm(config)
-  const { register: r3, handleSubmit: hs3, errors: e3 } = useForm(config)
+  const { register: r1, handleSubmit: hs1, errors: e1, reset: rs1 } = useForm(config)
+  const { register: r2, handleSubmit: hs2, errors: e2, watch, reset: rs2 } = useForm(config)
+  const { register: r3, handleSubmit: hs3, errors: e3, reset: rs3 } = useForm(config)
 
   const onSubmit1 = ({ ic }) => {
     setIc(ic)
@@ -40,6 +40,17 @@ function Found() {
   const onSubmit = () => {
     alert(`${ic} ${email} ${type}`)
     next()
+  }
+
+  const reset = () => {
+    setStep(1)
+    setIc('')
+    setEmail('')
+    setType('telegram')
+    setInfo('')
+    rs1()
+    rs2()
+    rs3()
   }
 
   return (
@@ -60,14 +71,7 @@ function Found() {
         watch={watch}
       />
 
-      <Email
-        hs3={hs3}
-        onSubmit3={onSubmit3}
-        step={step}
-        e3={e3}
-        r3={r3}
-        back={back}
-      />
+      <Email hs3={hs3} onSubmit3={onSubmit3} step={step} e3={e3} r3={r3} back={back} />
 
       <Review
         step={step}
@@ -79,7 +83,7 @@ function Found() {
         email={email}
       />
 
-      <ThankYou step={step} />
+      <ThankYou step={step} reset={reset} />
     </>
   )
 }
