@@ -1,6 +1,8 @@
 import React from 'react'
 import './App.css'
 
+import theme from './theme'
+import { ThemeProvider } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import Topbar from './components/Topbar'
 import ActionTab from './components/ActionTab'
@@ -30,8 +32,10 @@ function App() {
 
   return (
     <div className={classes.root}>
-      <Topbar classes={classes} />
-      <ActionTab />
+      <ThemeProvider theme={theme}>
+        <Topbar classes={classes} />
+        <ActionTab />
+      </ThemeProvider>
     </div>
   )
 }
