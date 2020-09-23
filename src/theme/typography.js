@@ -1,5 +1,8 @@
 export default {
   fontFamily: 'Nunito, Arial',
+  button: {
+    textTransform: 'none',
+  },
   h1: {
     fontWeight: 500,
     fontSize: 35,
