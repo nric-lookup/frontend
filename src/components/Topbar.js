@@ -11,6 +11,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined'
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet'
 
 function Topbar({ classes }) {
   const [open, setOpen] = useState(false)
@@ -28,7 +29,7 @@ function Topbar({ classes }) {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' className={classes.title}>
-            Jumpa IC
+            <b>JUMPA IC</b>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -40,6 +41,15 @@ function Topbar({ classes }) {
                 <InfoOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary='About' />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <AccountBalanceWalletIcon />
+              </ListItemIcon>
+              <ListItemText primary='Donation' />
+            </ListItem>
+            <ListItem>
+              <ListItemText primary='Project madebyafrie' />
             </ListItem>
           </List>
         </div>
